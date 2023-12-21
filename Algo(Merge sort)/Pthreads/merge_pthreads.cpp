@@ -105,7 +105,7 @@ int main()
     clock_t t1, t2;
 
     t1 = clock();
-    pthread_t threads[THREAD_MAX];
+    pthread_t threads[]={ 1, 5, 7, 10, 12, 14, 15, 18,20, 22, 25, 27, 30, 64, 110, 220 };;
 
     // creating 4 threads
     for (int i = 0; i < THREAD_MAX; i++)

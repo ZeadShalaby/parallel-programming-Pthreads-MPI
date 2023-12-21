@@ -91,8 +91,8 @@ void printArray(int A[], int size)
 int main()
 {
     clock_t t1, t2;
+    int arr[]={ 1, 5, 7, 10, 12, 14, 15, 18,20, 22, 25, 27, 30, 64, 110, 220 };
 
-	int arr[] = { 12, 11, 13, 5, 6, 7 };
 	int arr_size = sizeof(arr) / sizeof(arr[0]);
 
 	cout << "Given array is \n";
@@ -106,7 +106,7 @@ int main()
 	printArray(arr, arr_size);
 
 	 // time taken by merge sort in seconds
-    cout <<endl<< "Time taken: " <<(t2 - t1)*1000 /
+    cout <<endl<< "Time taken: " <<(t2 - t1)*10 /
               (double)CLOCKS_PER_SEC<< " seconds"<< endl;
 	return 0;
 }

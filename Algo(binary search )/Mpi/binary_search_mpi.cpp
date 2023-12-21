@@ -24,14 +24,11 @@ void binarySearch(int *arr,int start, int end,int key,int rank)
 	}
 }
 int main(int argc, char **argv) {
-	int n=4000;
-	int *arr=new int[n];
+	int n=7;
+	int arr[]={ 1, 5, 7, 10, 12, 14, 15, 18,20, 22, 25, 27, 30, 64, 110, 220 };
 
-	for(int i=0;i<n;i++)
-	{
-		arr[i]=i+1;
-	}
-	cout<<"here ";
+
+	cout<<" : here ";
 	int key=100; //element to search
 	MPI_Init(&argc, &argv);
 

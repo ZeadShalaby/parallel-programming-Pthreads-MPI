@@ -28,8 +28,8 @@ clock_t t1, t2;
 int main(void) {
  clock_t t1, t2;
 
-  int array[] = {3, 4, 5, 6, 7, 8, 9};
-  int x = 4;
+  int array[] = { 1, 5, 7, 10, 12, 14, 15, 18,20, 22, 25, 27, 30, 64, 110, 220 };
+  int x = 220;
   int n = sizeof(array) / sizeof(array[0]);
   int result = binarySearch(array, x, 0, n - 1);
   t2 = clock();
@@ -43,7 +43,7 @@ int main(void) {
   else{
     cout<< x <<": is found at index :"<<result<<endl;
      // time taken by merge sort in seconds
-    cout <<endl<< "Time taken: " <<(t2 - t1)*1000 /
+    cout <<endl<< "Time taken: " <<(t2 - t1)*10 /
               (double)CLOCKS_PER_SEC<< " seconds"<< endl;
   }
 }
