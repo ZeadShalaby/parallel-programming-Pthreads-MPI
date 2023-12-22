@@ -99,13 +99,12 @@ int main()
     // generating random values in array
     for (int i = 0; i < MAX; i++)
         a[i] = rand() % 100;
-
     // t1 and t2 for calculating time for
     // merge sort
     clock_t t1, t2;
 
     t1 = clock();
-    pthread_t threads[]={ 1, 5, 7, 10, 12, 14, 15, 18,20, 22, 25, 27, 30, 64, 110, 220 };;
+    pthread_t threads[]={  45, 58, 61, 62, 64, 670, 5, 24, 27, 27, 34, 36, 41, 42,  69, 78, 81, 91, 95 };
 
     // creating 4 threads
     for (int i = 0; i < THREAD_MAX; i++)

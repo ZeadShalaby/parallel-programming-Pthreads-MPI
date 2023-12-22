@@ -5,64 +5,46 @@ using namespace std;
 // Merges two subarrays of array[].
 // First subarray is arr[begin..mid]
 // Second subarray is arr[mid+1..end]
-void merge(int array[], int const left, int const mid,
-		int const right)
+void merge(int array[], int const low, int const mid,int const high)
 {
     clock_t t1, t2;
 
     t1 = clock();
-	int const subArrayOne = mid - left + 1;
-	int const subArrayTwo = right - mid;
+	 int* left = new int[mid - low + 1];
+    int* right = new int[high - mid];
 
-	// Create temp arrays
-	auto *leftArray = new int[subArrayOne],
-		*rightArray = new int[subArrayTwo];
+    // n1 is size of left part and n2 is size
+    // of right part
+    int n1 = mid - low + 1, n2 = high - mid, i, j;
 
-	// Copy data to temp arrays leftArray[] and rightArray[]
-	for (auto i = 0; i < subArrayOne; i++)
-		leftArray[i] = array[left + i];
-	for (auto j = 0; j < subArrayTwo; j++)
-		rightArray[j] = array[mid + 1 + j];
+    // storing values in left part
+    for (i = 0; i < n1; i++)
+        left[i] = array[i + low];
 
-	auto indexOfSubArrayOne = 0, indexOfSubArrayTwo = 0;
-	int indexOfMergedArray = left;
+    // storing values in right part
+    for (i = 0; i < n2; i++)
+        right[i] = array[i + mid + 1];
 
-	// Merge the temp arrays back into array[left..right]
-	while (indexOfSubArrayOne < subArrayOne
-		&& indexOfSubArrayTwo < subArrayTwo) {
-		if (leftArray[indexOfSubArrayOne]
-			<= rightArray[indexOfSubArrayTwo]) {
-			array[indexOfMergedArray]
-				= leftArray[indexOfSubArrayOne];
-			indexOfSubArrayOne++;
-		}
-		else {
-			array[indexOfMergedArray]
-				= rightArray[indexOfSubArrayTwo];
-			indexOfSubArrayTwo++;
-		}
-		indexOfMergedArray++;
-	}
+    int k = low;
+    i = j = 0;
 
-	// Copy the remaining elements of
-	// left[], if there are any
-	while (indexOfSubArrayOne < subArrayOne) {
-		array[indexOfMergedArray]
-			= leftArray[indexOfSubArrayOne];
-		indexOfSubArrayOne++;
-		indexOfMergedArray++;
-	}
+    // merge left and right in ascending order
+    while (i < n1 && j < n2) {
+        if (left[i] <= right[j])
+            array[k++] = left[i++];
+        else
+            array[k++] = right[j++];
+    }
 
-	// Copy the remaining elements of
-	// right[], if there are any
-	while (indexOfSubArrayTwo < subArrayTwo) {
-		array[indexOfMergedArray]
-			= rightArray[indexOfSubArrayTwo];
-		indexOfSubArrayTwo++;
-		indexOfMergedArray++;
-	}
-	delete[] leftArray;
-	delete[] rightArray;
+    // insert remaining values from left
+    while (i < n1) {
+        array[k++] = left[i++];
+    }
+
+    // insert remaining values from right
+    while (j < n2) {
+        array[k++] = right[j++];
+    }
 }
 
 // begin is for left index and end is right index
@@ -91,7 +73,7 @@ void printArray(int A[], int size)
 int main()
 {
     clock_t t1, t2;
-    int arr[]={ 1, 5, 7, 10, 12, 14, 15, 18,20, 22, 25, 27, 30, 64, 110, 220 };
+    int arr[]={  45, 58, 61, 62, 64, 670, 5, 24, 27, 27, 34, 36, 41, 42,  69, 78, 81, 91, 95 };
 
 	int arr_size = sizeof(arr) / sizeof(arr[0]);
 

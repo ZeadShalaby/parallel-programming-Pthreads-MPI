@@ -14,7 +14,7 @@ using namespace std;
 int a[] = { 1, 5, 7, 10, 12, 14, 15, 18,20, 22, 25, 27, 30, 64, 110, 220 };
 
 // key that needs to be searched
-int key = 10000; //12 1 14//
+int key = 110; //12 1 14//
 bool found = false;
 int part = 0;
 int index =0;
@@ -40,7 +40,6 @@ void* binary_search(void* arg)
 			index = mid;
 			break;
 		}
-
 		else if (a[mid] > key)
 			high = mid - 1;
 		else
@@ -77,10 +76,10 @@ int main()
 	}
 
 	// key not found in array
-	else
+	else{
 		cout << key << " not found in array" << endl;
 		 cout <<endl<< "Time taken: " << (t2 - t1) /
               (double)CLOCKS_PER_SEC << endl;
-
+	}
 	return 0;
 }

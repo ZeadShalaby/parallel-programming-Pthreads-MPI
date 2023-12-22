@@ -6,7 +6,7 @@
 #include "mpi.h"
 #include <time.h>
 
-#define N 8
+#define N 10
 
 int numOfProc, idproc;
 
@@ -38,14 +38,13 @@ int main(int argc,char ** argv) {
    recvcnts=(int*)malloc(numOfProc*sizeof(int));
 
    buf=(int*)malloc(count*sizeof(int));
-  clock_t start_time = clock();
+   clock_t start_time = clock();
 
    for(i=0; i<numOfProc; i++){
        displ[i]=i*count;
        sendcnts[i]=count;
        recvcnts[i]=count;
    }
-
 
 
    if(idproc == 0) {
@@ -64,10 +63,7 @@ int main(int argc,char ** argv) {
    MPI_Scatterv(send_buf, sendcnts, displ, MPI_INT, buf, count, MPI_INT, 0, MPI_COMM_WORLD);
 
    printf("proces %d: ", idproc);
-   qsort(buf, count, sizeof(int), compare);
-   for (int i = 0; i < count; i++) printf("%d ", buf[i]);
-   printf("\n\n");
-   fflush(stdout);
+
 
    MPI_Gatherv(buf, count, MPI_INT, receive_buf, recvcnts, displ, MPI_INT, 0, MPI_COMM_WORLD);
 
@@ -82,15 +78,10 @@ int main(int argc,char ** argv) {
                    receive_buf[displ[j]]=receive_buf[i];
                    receive_buf[i]=temp;
                }
-
            }
 
            printf("%d ", receive_buf[i]);
-
-
        }
-
-
           printf("\n");
           fflush(stdout);
           clock_t end_time = clock();

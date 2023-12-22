@@ -7,7 +7,6 @@ bool found = false;
 int binarySearch(int array[],int start, int end,int key,int rank)
 {
 
-
 	while(start<=end)
 	{
 		int mid=(end-start)/2+start;
@@ -30,6 +29,7 @@ int binarySearch(int array[],int start, int end,int key,int rank)
 }
 int main(int argc, char **argv) {
   int array[] = { 1, 5, 7, 10, 12, 14, 15, 18,20, 22, 25, 27, 30, 64, 110, 220 };
+
   int n = sizeof(array) / sizeof(array[0])-1 ;
 
 
@@ -59,21 +59,8 @@ int main(int argc, char **argv) {
         cout<< key <<": is Not found "<<endl;}
 
 	}
-	else if(rank==1)
-	{
-		double start=MPI_Wtime();
-		int result =binarySearch(array, rank*blockSize, (rank+1)*blockSize-1, key, rank);
-		double end=MPI_Wtime();
-        if(result>=0){
-        cout<<key<<" : is  Found by processor : "<<rank<<" index : "<<result<<" .\n";
-		cout<<"Execution time of Processor "<<rank<<" is "<<(end-start)*1000<<endl;}
-		else{
-        cout<< key <<": is Not found "<<endl;
-        cout<<"Execution time of Processor "<<rank<<" is "<<(end-start)*1000<<endl;
-        }
-        }
-	else if(rank==2)
-		{
+
+    else{
         double start=MPI_Wtime();
         int result =binarySearch(array, rank*blockSize, (rank+1)*blockSize-1, key, rank);
         double end=MPI_Wtime();
@@ -82,8 +69,7 @@ int main(int argc, char **argv) {
         cout<<"Execution time of Processor "<<rank<<" is "<<(end-start)*1000<<endl;}
         else{
         cout<< key <<": is Not found "<<endl;
-                cout<<"Execution time of Processor "<<rank<<" is "<<(end-start)*1000<<endl;}
-
+        cout<<"Execution time of Processor "<<rank<<" is "<<(end-start)*1000<<endl;}
         }
 
 	MPI_Finalize();
