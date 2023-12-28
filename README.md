@@ -2,7 +2,7 @@
 <br/>
 <p align="center">
   <a href="https://github.com/ZeadShalaby/parallel-programming-Pthreads-MPI">
-          <img src="https://imgur.com/3Ow9UpH.png?w=996" alt="Logo" width="500" height="270">
+          <img src="https://imgur.com/3Ow9UpH.png?w=996" alt="Logo" width="450" height="370">
 
   </a>
     
