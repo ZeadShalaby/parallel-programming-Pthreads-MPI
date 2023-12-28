@@ -11,7 +11,7 @@ PTHREADS :In computing, POSIX Threads, commonly known as pthreads, is an executi
 Any contributions you make are **greatly appreciated**.
 
 * If you have suggestions for adding or removing projects, feel free
-  to [open an issue](https://github.com/ZeadShalaby/Machine_Learning_Project/issues/new) to discuss it, or directly
+  to [open an issue](https://github.com/ZeadShalaby/parallel-programming-Pthreads-MPI/issues/new) to discuss it, or directly
   create a pull request after you edit the *README.md* file with necessary changes.
 * Please make sure you check your spelling and grammar.
 * Create individual PR for each suggestion.
