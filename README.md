@@ -6,10 +6,10 @@
 
   </a>
     
-<h3 align="center">Compiler-Lexical-Syntax-Analysis</h3>
+<h3 align="center">parallel-programming</h3>
 
   <p align="center">
-   Compiler Project  with  two phases  lexical & Syntax Analysis
+parallel-programming-Pthreads-MPI
     <br/>
     <br/>
   </p>
